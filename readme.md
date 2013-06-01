@@ -61,3 +61,7 @@ Publish an event with data
 ```javascript
 observer.publish('event', 'some data for callbacks');
 ```
+
+## License
+
+[MIT License](http://en.wikipedia.org/wiki/MIT_License) (c) Alexey Raspopov
