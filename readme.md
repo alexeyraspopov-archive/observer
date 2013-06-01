@@ -7,7 +7,7 @@ Simple implementation of pub/sub pattern
 Simple browser import via HTML
 
 ```HTML
-<script src="path/to/lib/dist/observer.min.js"></script>
+<script src="path/to/component/observer.min.js"></script>
 ```
 
 Require AMD module (require.js)
@@ -15,7 +15,7 @@ Require AMD module (require.js)
 ```javascript
 require.config({
 	paths: {
-		observer: 'path/to/component/dist/observer.min.js'
+		observer: 'path/to/component/observer.min.js'
 	}
 });
 

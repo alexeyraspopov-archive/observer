@@ -3,10 +3,10 @@ module.exports = function(grunt){
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		clean: ['dist'],
+		clean: ['<%= pkg.name %>.js', '<%= pkg.name %>.min.js'],
 		jasmine: {
 			dist: {
-				src: 'dist/*.js',
+				src: ['<%= pkg.name %>.js'],
 				options: {
 					outfile: 'specs.html',
 					specs: 'spec/*-spec.js'
@@ -14,18 +14,18 @@ module.exports = function(grunt){
 			}
 		},
 		jshint: {
-			all: ['dist/*.js', 'spec/*.js', 'gruntfile.js']
+			all: ['*.js', 'spec/*.js']
 		},
 		concat: {
 			dist: {
 				src: ['src/prefix.js', 'src/<%= pkg.name %>.js', 'src/factory.js'],
-				dest: 'dist/<%= pkg.name %>.js'
+				dest: '<%= pkg.name %>.js'
 			}
 		},
 		uglify: {
 			dist: {
 				files: {
-					'dist/<%= pkg.name %>.min.js': ['dist/<%= pkg.name %>.js']
+					'<%= pkg.name %>.min.js': ['<%= pkg.name %>.js']
 				}
 			}
 		}
