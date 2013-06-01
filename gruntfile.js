@@ -1,9 +1,12 @@
 module.exports = function(grunt){
 	'use strict';
+
 	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+		clean: ['dist'],
 		jasmine: {
 			dist: {
-				src: 'src/*.js',
+				src: 'dist/*.js',
 				options: {
 					outfile: 'specs.html',
 					specs: 'spec/*-spec.js'
@@ -11,12 +14,18 @@ module.exports = function(grunt){
 			}
 		},
 		jshint: {
-			all: ['src/*.js', 'spec/*.js', 'gruntfile.js']
+			all: ['dist/*.js', 'spec/*.js', 'gruntfile.js']
+		},
+		concat: {
+			dist: {
+				src: ['src/prefix.js', 'src/<%= pkg.name %>.js', 'src/factory.js'],
+				dest: 'dist/<%= pkg.name %>.js'
+			}
 		},
 		uglify: {
 			dist: {
 				files: {
-					'dist/observer.min.js': ['src/observer.js']
+					'dist/<%= pkg.name %>.min.js': ['dist/<%= pkg.name %>.js']
 				}
 			}
 		}
@@ -25,6 +34,8 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
-	grunt.registerTask('default', ['jasmine', 'jshint', 'uglify']);
+	grunt.registerTask('default', ['clean', 'concat', 'jasmine', 'jshint', 'uglify']);
 };
