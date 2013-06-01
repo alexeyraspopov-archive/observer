@@ -4,6 +4,36 @@ Simple implementation of pub/sub pattern
 
 ## Import
 
+Simple browser import via HTML
+
+```HTML
+<script src="path/to/lib/dist/observer.min.js"></script>
+```
+
+Require AMD module (require.js)
+
+```javascript
+require.config({
+	paths: {
+		observer: 'path/to/component/dist/observer.min.js'
+	}
+});
+
+define(['observer'], function(Observer){
+	var observer = new Observer();
+});
+```
+
+via Node.js
+
+```bash
+npm install git@github.com:alexeyraspopov/observer.git
+```
+
+```javascript
+var Observer = require('observer');
+```
+
 ## Using
 
 Create observer
