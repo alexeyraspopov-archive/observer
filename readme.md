@@ -50,6 +50,12 @@ observer.subscribe('event', function(){
 });
 ```
 
+Unsubscribe previously subscribed event
+
+```javascript
+observer.unsubscribe('event', callback);
+```
+
 Publish an event with data
 
 ```javascript
