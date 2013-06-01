@@ -4,7 +4,7 @@
   "description": "Simple pub/sub pattern implementation",
   "main": "observer.js",
   "scripts": {
-    "test": "grunt jasmine"
+    "test": "grunt test"
   },
   "repository": "git@github.com:alexeyraspopov/observer.git",
   "author": "Alexey Raspopov",

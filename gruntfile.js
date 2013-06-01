@@ -37,5 +37,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
+	grunt.registerTask('test', ['clean', 'concat', 'jasmine']);
 	grunt.registerTask('default', ['clean', 'concat', 'jasmine', 'jshint', 'uglify']);
 };

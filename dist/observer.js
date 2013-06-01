@@ -1,6 +1,5 @@
 (function(factory){
 	'use strict';
-
 function Observer(){
 	this.listeners = {};
 }
