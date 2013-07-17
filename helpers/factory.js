@@ -5,7 +5,6 @@
 		});
 	}else if(typeof module === 'object' && typeof module.exports === 'object'){
 		module.exports = object;
-		return;
 	}else{
 		window[name] = object;
 	}
