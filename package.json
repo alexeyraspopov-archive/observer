@@ -1,6 +1,6 @@
 {
   "name": "observer",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Simple pub/sub pattern implementation",
   "main": "observer.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "grunt-contrib-jshint": "~0.5.4",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jasmine": "~0.4.2",
-    "grunt-contrib-clean": "~0.4.1"
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "name": "observer",
+  "version": "1.0.3",
+  "main": "observer.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

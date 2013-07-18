@@ -40,9 +40,8 @@ factory('Observer', Observer);
 		define(function(){
 			return object;
 		});
-	}else if(typeof module === 'object' && typeof module.exports === 'object'){
-		module.exports = object;
-		return;
+	}else if(typeof exports === 'object'){
+		exports[name] = object;
 	}else{
 		window[name] = object;
 	}

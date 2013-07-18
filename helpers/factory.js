@@ -3,8 +3,8 @@
 		define(function(){
 			return object;
 		});
-	}else if(typeof module === 'object' && typeof module.exports === 'object'){
-		module.exports = object;
+	}else if(typeof exports === 'object'){
+		exports[name] = object;
 	}else{
 		window[name] = object;
 	}

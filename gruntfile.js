@@ -3,7 +3,7 @@ module.exports = function(grunt){
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		clean: ['<%= pkg.name %>.js', '<%= pkg.name %>.min.js'],
+		clean: ['<%= pkg.name %>.js', '<%= pkg.name %>.min.js', 'index.js'],
 		jasmine: {
 			dist: {
 				src: ['<%= pkg.name %>.js'],
@@ -23,10 +23,18 @@ module.exports = function(grunt){
 			}
 		},
 		uglify: {
+			options: {
+				report: 'min'
+			},
 			dist: {
-				files: {
-					'<%= pkg.name %>.min.js': ['<%= pkg.name %>.js']
-				}
+				src: '<%= pkg.name %>.js',
+				dest: '<%= pkg.name %>.min.js'
+			}
+		},
+		copy: {
+			dist: {
+				src: '<%= pkg.name %>.min.js',
+				dest: 'index.js'
 			}
 		}
 	});
@@ -36,7 +44,8 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	grunt.registerTask('test', ['clean', 'concat', 'jasmine']);
-	grunt.registerTask('default', ['clean', 'concat', 'jasmine', 'jshint', 'uglify']);
+	grunt.registerTask('default', ['clean', 'concat', 'jasmine', 'jshint', 'uglify', 'copy']);
 };
